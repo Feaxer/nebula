@@ -39,14 +39,14 @@ describe("String functions", function()
 
     it("String#ends_with", function()
         local s = "foo bar baz"
-        same(s:ends_with("baz"), true)
-        same(s:ends_with("bar"), false)
+        same(_.ends_with(s, "baz"), true)
+        same(_.ends_with(s, "bar"), false)
     end)
 
     it("String#starts_with", function()
         local s = "foo bar baz"
-        same(s:starts_with("foo"), true)
-        same(s:starts_with("bar"), false)
+        same(_.starts_with(s, "foo"), true)
+        same(_.starts_with(s, "bar"), false)
     end)
 
     it("String#ltrim", function()

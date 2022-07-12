@@ -42,6 +42,31 @@ end
 function exports.starts_with(str, text)
     return string.match(str, "^" .. text) ~= nil
 end
+
+function exports.ltrim(str, chars)
+    chars = chars or " \r\n\t"
+    for i = 1, #str do
+        if chars:find(str:sub(i, i), 1, true) == nil then
+            return str:sub(i)
+        end
+    end
+    return ""
+end
+
+function exports.rtrim(str, chars)
+    chars = chars or " \r\n\t"
+    for i = #str, 1, -1 do
+        if chars:find(str:sub(i, i), 1, true) == nil then
+            return str:sub(1, i)
+        end
+    end
+    return ""
+end
+
+function exports.trim(str, chars)
+    return exports.rtrim(exports.ltrim(str, chars), chars)
+end
+
 ---------------------------------
 -- Adding string methods
 ---------------------------------
